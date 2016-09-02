@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>020315cf-387f-477e-8b6e-0dd2f9dde232</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>CuteAnt.Extensions.Security.Sources</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AsymmetricEncryptionHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base64Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DSAHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HashHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HMACHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PBKDFHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RNG.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RSAHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SymmetricEncryptionHelper.cs" />
+  </ItemGroup>
+</Project>

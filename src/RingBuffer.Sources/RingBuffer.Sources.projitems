@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>50990435-d0d7-465d-9ba1-4902af7d8336</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RingBuffer.Sources</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)FullyConcurrent\AsyncHelpers\AsyncManualResetEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FullyConcurrent\AsyncHelpers\IdManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FullyConcurrent\AsyncHelpers\TaskCompletionSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FullyConcurrent\AsyncHelpers\TaskCompletionSourceExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FullyConcurrent\FullyConcurrentRingBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FullyConcurrent\FullyConcurrentRingBufferStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PartiallyConcurrent\ConcurrentRingBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PartiallyConcurrent\IRingBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PartiallyConcurrent\RingBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PartiallyConcurrent\RingBufferStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PartiallyConcurrent\SequentialRingBuffer.cs" />
+  </ItemGroup>
+</Project>

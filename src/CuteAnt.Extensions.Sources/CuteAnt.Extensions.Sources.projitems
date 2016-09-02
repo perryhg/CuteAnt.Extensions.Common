@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>4bee24d6-b657-4c44-8ae6-1697ad8c4a1b</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>CuteAnt.Extensions.Sources</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CaBitExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaCollectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaDictionaryExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaEnumExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaEnumHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaPathExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaStringBuilderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaStringExtensions.cs" />
+  </ItemGroup>
+</Project>

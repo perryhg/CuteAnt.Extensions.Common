@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>5dee7b96-f823-41b7-bc66-6842709867a9</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>CmdLine.Sources</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CommandArgument.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandArgumentHelp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandEnvironment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLineArgumentInvalidException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLineArgumentsAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLineException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLineHelpException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLineParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLineParameterAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLineRequiredArgumentMissingException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ICommandEnvironment.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f0dcba0c-1ee9-403c-931c-555776f6c680</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>CuteAnt.Extensions.DateTimeUtilities.Sources</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CaDatetimeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CaTicksExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DateTimeUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ticks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimeoutShim.cs" />
+  </ItemGroup>
+</Project>

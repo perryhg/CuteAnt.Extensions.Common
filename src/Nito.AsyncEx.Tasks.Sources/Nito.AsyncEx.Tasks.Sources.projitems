@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>90bcc560-aa2b-4146-858a-9e524b696f75</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Nito.AsyncEx.Tasks.Sources</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CancellationTokenExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CancellationTokenHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskCompletionSourceExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskFactoryExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskShim.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskShim.Net40.cs" />
+  </ItemGroup>
+</Project>
