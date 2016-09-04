@@ -13,8 +13,6 @@ namespace System.Reflection
     #region @@ Fields @@
 
     private readonly Type _type;
-    private const BindingFlags DefaultLookup = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public;
-    internal const BindingFlags DeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
 
     #endregion
 
@@ -38,22 +36,22 @@ namespace System.Reflection
     public Type BaseType { get { return _type.BaseType; } }
     public bool ContainsGenericParameters { get { return _type.ContainsGenericParameters; } }
     public IEnumerable<CustomAttributeData> CustomAttributes { get { return _type.GetCustomAttributesData(); } }
-    public IEnumerable<ConstructorInfo> DeclaredConstructors { get { return _type.GetConstructors(DeclaredOnlyLookup); } }
-    public IEnumerable<EventInfo> DeclaredEvents { get { return _type.GetEvents(DeclaredOnlyLookup); } }
-    public IEnumerable<FieldInfo> DeclaredFields { get { return _type.GetFields(DeclaredOnlyLookup); } }
-    public IEnumerable<MemberInfo> DeclaredMembers { get { return _type.GetMembers(DeclaredOnlyLookup); } }
-    public IEnumerable<MethodInfo> DeclaredMethods { get { return _type.GetMethods(DeclaredOnlyLookup); } }
+    public IEnumerable<ConstructorInfo> DeclaredConstructors { get { return _type.GetConstructors(BindingFlagsHelper.MSDeclaredOnlyLookup); } }
+    public IEnumerable<EventInfo> DeclaredEvents { get { return _type.GetEvents(BindingFlagsHelper.MSDeclaredOnlyLookup); } }
+    public IEnumerable<FieldInfo> DeclaredFields { get { return _type.GetFields(BindingFlagsHelper.MSDeclaredOnlyLookup); } }
+    public IEnumerable<MemberInfo> DeclaredMembers { get { return _type.GetMembers(BindingFlagsHelper.MSDeclaredOnlyLookup); } }
+    public IEnumerable<MethodInfo> DeclaredMethods { get { return _type.GetMethods(BindingFlagsHelper.MSDeclaredOnlyLookup); } }
     public IEnumerable<System.Reflection.TypeInfo> DeclaredNestedTypes
     {
       get
       {
-        foreach (var t in _type.GetNestedTypes(DeclaredOnlyLookup))
+        foreach (var t in _type.GetNestedTypes(BindingFlagsHelper.MSDeclaredOnlyLookup))
         {
           yield return t.GetTypeInfo();
         }
       }
     }
-    public IEnumerable<PropertyInfo> DeclaredProperties { get { return _type.GetProperties(DeclaredOnlyLookup); } }
+    public IEnumerable<PropertyInfo> DeclaredProperties { get { return _type.GetProperties(BindingFlagsHelper.MSDeclaredOnlyLookup); } }
     public MethodBase DeclaringMethod { get { return _type.DeclaringMethod; } }
     public Type DeclaringType { get { return _type.DeclaringType; } }
     public GenericParameterAttributes GenericParameterAttributes { get { return _type.GenericParameterAttributes; } }
@@ -162,19 +160,19 @@ namespace System.Reflection
 
     public EventInfo GetDeclaredEvent(String name)
     {
-      return _type.GetEvent(name, DeclaredOnlyLookup);
+      return _type.GetEvent(name, BindingFlagsHelper.MSDeclaredOnlyLookup);
     }
     public FieldInfo GetDeclaredField(String name)
     {
-      return _type.GetField(name, DeclaredOnlyLookup);
+      return _type.GetField(name, BindingFlagsHelper.MSDeclaredOnlyLookup);
     }
     public MethodInfo GetDeclaredMethod(String name)
     {
-      return _type.GetMethod(name, DeclaredOnlyLookup);
+      return _type.GetMethod(name, BindingFlagsHelper.MSDeclaredOnlyLookup);
     }
     public IEnumerable<MethodInfo> GetDeclaredMethods(String name)
     {
-      foreach (MethodInfo method in _type.GetMethods(DeclaredOnlyLookup))
+      foreach (MethodInfo method in _type.GetMethods(BindingFlagsHelper.MSDeclaredOnlyLookup))
       {
         if (method.Name == name)
           yield return method;
@@ -182,7 +180,7 @@ namespace System.Reflection
     }
     public System.Reflection.TypeInfo GetDeclaredNestedType(String name)
     {
-      var nt = _type.GetNestedType(name, DeclaredOnlyLookup);
+      var nt = _type.GetNestedType(name, BindingFlagsHelper.MSDeclaredOnlyLookup);
       if (nt == null)
       {
         return default(TypeInfo); //the extension method GetTypeInfo throws for null
@@ -194,7 +192,7 @@ namespace System.Reflection
     }
     public PropertyInfo GetDeclaredProperty(String name)
     {
-      return _type.GetProperty(name, DeclaredOnlyLookup);
+      return _type.GetProperty(name, BindingFlagsHelper.MSDeclaredOnlyLookup);
     }
     public Type[] GetGenericParameterConstraints() { return _type.GetGenericParameterConstraints(); }
 

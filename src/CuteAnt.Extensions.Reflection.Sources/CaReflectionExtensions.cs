@@ -8,6 +8,184 @@ using System.Runtime.CompilerServices;
 
 namespace System.Reflection
 {
+  #region --- class PlatformTypeHelper ---
+
+  internal static class PlatformTypeHelper
+  {
+  }
+
+  #endregion
+
+  #region --- class BindingFlagsHelper ---
+
+  /// <summary>BindingFlagsHelper</summary>
+  internal static class BindingFlagsHelper
+  {
+    #region -- MS --
+
+    /// <summary>MSRuntimeLookup - from ReferenceSource\mscorlib\system\type.cs</summary>
+    internal const BindingFlags MSDefaultLookup = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public;
+
+    /// <summary>MSRuntimeLookup - from ReferenceSource\mscorlib\system\type.cs</summary>
+    internal const BindingFlags MSDeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
+
+    /// <summary>MSRuntimeLookup - from ReferenceSource\mscorlib\system\reflection\RuntimeReflectionExtensions.cs</summary>
+    internal const BindingFlags MSRuntimeLookup = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+
+    #endregion
+
+    #region -- Static --
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Static</summary>
+    internal const BindingFlags StaticDeclaredAndNonPublicOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Static;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticDeclaredAndNonPublicOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Static</summary>
+    internal const BindingFlags StaticDeclaredAndPublicOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Static;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticDeclaredAndPublicOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static</summary>
+    internal const BindingFlags StaticDeclaredOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticDeclaredOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+
+    /// <summary>BindingFlags.NonPublic | BindingFlags.Static</summary>
+    internal const BindingFlags StaticNonPublicOnlyLookup = BindingFlags.NonPublic | BindingFlags.Static;
+
+    /// <summary>BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticNonPublicOnlyLookupIC = BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.Public | BindingFlags.Static</summary>
+    internal const BindingFlags StaticPublicOnlyLookup = BindingFlags.Public | BindingFlags.Static;
+
+    /// <summary>BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticPublicOnlyLookupIC = BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static</summary>
+    internal const BindingFlags StaticLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+
+    /// <summary>BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticLookupIC = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static</summary>
+    internal const BindingFlags StaticPublicOnlyLookupAll = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static;
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticPublicOnlyLookupAllIC = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static</summary>
+    internal const BindingFlags StaticLookupAll = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags StaticLookupAllIC = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    #endregion
+
+    #region -- Instance --
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance</summary>
+    internal const BindingFlags InstanceDeclaredAndNonPublicOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags InstanceDeclaredAndNonPublicOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance</summary>
+    internal const BindingFlags InstanceDeclaredAndPublicOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags InstanceDeclaredAndPublicOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance</summary>
+    internal const BindingFlags InstanceDeclaredOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags InstanceDeclaredOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+
+    /// <summary>BindingFlags.NonPublic | BindingFlags.Instance</summary>
+    internal const BindingFlags InstanceNonPublicOnlyLookup = BindingFlags.NonPublic | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags InstanceNonPublicOnlyLookupIC = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.Public | BindingFlags.Instance</summary>
+    internal const BindingFlags InstancePublicOnlyLookup = BindingFlags.Public | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags InstancePublicOnlyLookupIC = BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance</summary>
+    internal const BindingFlags InstanceLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags InstanceLookupIC = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    #endregion
+
+    #region -- Default --
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static</summary>
+    internal const BindingFlags DefaultDeclaredAndNonPublicOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultDeclaredAndNonPublicOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static</summary>
+    internal const BindingFlags DefaultDeclaredAndPublicOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultDeclaredAndPublicOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static</summary>
+    internal const BindingFlags DefaultDeclaredOnlyLookup = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
+
+    /// <summary>BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultDeclaredOnlyLookupIC = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+
+    /// <summary>BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance</summary>
+    internal const BindingFlags DefaultNonPublicOnlyLookup = BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultNonPublicOnlyLookupIC = BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance</summary>
+    internal const BindingFlags DefaultPublicOnlyLookup = BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultPublicOnlyLookupIC = BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance</summary>
+    internal const BindingFlags DefaultLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultLookupIC = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance</summary>
+    internal const BindingFlags DefaultPublicOnlyLookupAll = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultPublicOnlyLookupAllIC = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance</summary>
+    internal const BindingFlags DefaultLookupAll = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance;
+
+    /// <summary>BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase</summary>
+    internal const BindingFlags DefaultLookupAllIC = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
+    #endregion
+  }
+
+  #endregion
+
   internal static class CaReflectionExtensions
   {
     #region -- Type --
@@ -342,87 +520,87 @@ namespace System.Reflection
 
     #endregion
 
-    #region -- GetAllProperties --
+    #region - GetAllProperties -
 
-    public static PropertyInfo[] GetAllProperties(this Type type)
-    {
-      if (type.IsInterface())
-      {
-        var propertyInfos = new List<PropertyInfo>();
+    //public static PropertyInfo[] GetAllProperties(this Type type)
+    //{
+    //  if (type.IsInterface())
+    //  {
+    //    var propertyInfos = new List<PropertyInfo>();
 
-        var considered = new List<Type>();
-        var queue = new Queue<Type>();
-        considered.Add(type);
-        queue.Enqueue(type);
+    //    var considered = new List<Type>();
+    //    var queue = new Queue<Type>();
+    //    considered.Add(type);
+    //    queue.Enqueue(type);
 
-        while (queue.Count > 0)
-        {
-          var subType = queue.Dequeue();
-          foreach (var subInterface in subType.GetTypeInterfaces())
-          {
-            if (considered.Contains(subInterface)) continue;
+    //    while (queue.Count > 0)
+    //    {
+    //      var subType = queue.Dequeue();
+    //      foreach (var subInterface in subType.GetTypeInterfaces())
+    //      {
+    //        if (considered.Contains(subInterface)) continue;
 
-            considered.Add(subInterface);
-            queue.Enqueue(subInterface);
-          }
+    //        considered.Add(subInterface);
+    //        queue.Enqueue(subInterface);
+    //      }
 
-          var typeProperties = subType.GetTypesProperties();
+    //      var typeProperties = subType.GetTypeProperties();
 
-          var newPropertyInfos = typeProperties
-              .Where(x => !propertyInfos.Contains(x));
+    //      var newPropertyInfos = typeProperties
+    //          .Where(x => !propertyInfos.Contains(x));
 
-          propertyInfos.InsertRange(0, newPropertyInfos);
-        }
+    //      propertyInfos.InsertRange(0, newPropertyInfos);
+    //    }
 
-        return propertyInfos.ToArray();
-      }
+    //    return propertyInfos.ToArray();
+    //  }
 
-      return type.GetTypesProperties()
-          .Where(t => t.GetIndexParameters().Length == 0) // ignore indexed properties
-          .ToArray();
-    }
+    //  return type.GetTypeProperties()
+    //      .Where(t => t.GetIndexParameters().Length == 0) // ignore indexed properties
+    //      .ToArray();
+    //}
 
     #endregion
 
-    #region -- GetPublicProperties --
+    #region - GetPublicProperties -
 
-    public static PropertyInfo[] GetPublicProperties(this Type type)
-    {
-      if (type.IsInterface())
-      {
-        var propertyInfos = new List<PropertyInfo>();
+    //public static PropertyInfo[] GetPublicProperties(this Type type)
+    //{
+    //  if (type.IsInterface())
+    //  {
+    //    var propertyInfos = new List<PropertyInfo>();
 
-        var considered = new List<Type>();
-        var queue = new Queue<Type>();
-        considered.Add(type);
-        queue.Enqueue(type);
+    //    var considered = new List<Type>();
+    //    var queue = new Queue<Type>();
+    //    considered.Add(type);
+    //    queue.Enqueue(type);
 
-        while (queue.Count > 0)
-        {
-          var subType = queue.Dequeue();
-          foreach (var subInterface in subType.GetTypeInterfaces())
-          {
-            if (considered.Contains(subInterface)) continue;
+    //    while (queue.Count > 0)
+    //    {
+    //      var subType = queue.Dequeue();
+    //      foreach (var subInterface in subType.GetTypeInterfaces())
+    //      {
+    //        if (considered.Contains(subInterface)) continue;
 
-            considered.Add(subInterface);
-            queue.Enqueue(subInterface);
-          }
+    //        considered.Add(subInterface);
+    //        queue.Enqueue(subInterface);
+    //      }
 
-          var typeProperties = subType.GetTypesPublicProperties();
+    //      var typeProperties = subType.GetTypePublicProperties();
 
-          var newPropertyInfos = typeProperties
-              .Where(x => !propertyInfos.Contains(x));
+    //      var newPropertyInfos = typeProperties
+    //          .Where(x => !propertyInfos.Contains(x));
 
-          propertyInfos.InsertRange(0, newPropertyInfos);
-        }
+    //      propertyInfos.InsertRange(0, newPropertyInfos);
+    //    }
 
-        return propertyInfos.ToArray();
-      }
+    //    return propertyInfos.ToArray();
+    //  }
 
-      return type.GetTypesPublicProperties()
-          .Where(t => t.GetIndexParameters().Length == 0) // ignore indexed properties
-          .ToArray();
-    }
+    //  return type.GetTypePublicProperties()
+    //      .Where(t => t.GetIndexParameters().Length == 0) // ignore indexed properties
+    //      .ToArray();
+    //}
 
     #endregion
 
@@ -563,7 +741,7 @@ namespace System.Reflection
     #endregion
   }
 
-  internal static class PlatformExtensions
+  internal static class CaPlatformExtensions
   {
     #region -- IsInterface --
 
@@ -684,14 +862,10 @@ namespace System.Reflection
 #endif
     public static Type[] GetTypeGenericArguments(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetTypeInfo().GenericTypeArguments;
-#else
 #if NET40
       return type.IsGenericType && !type.IsGenericTypeDefinition ? type.GetGenericArguments() : Type.EmptyTypes;
 #else
-      return type.GenericTypeArguments;
-#endif
+      return type.GetTypeInfo().GenericTypeArguments;
 #endif
     }
 
@@ -769,56 +943,65 @@ namespace System.Reflection
 
     #endregion
 
-    #region -- GetTypesPublicProperties --
+    #region -- GetTypePublicProperties --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    internal static PropertyInfo[] GetTypesPublicProperties(this Type subType)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      var pis = new List<PropertyInfo>();
-      foreach (var pi in subType.GetRuntimeProperties())
-      {
-        var mi = pi.GetMethod ?? pi.SetMethod;
-        if (mi != null && mi.IsStatic) continue;
-        pis.Add(pi);
-      }
-      return pis.ToArray();
-#else
-      return subType.GetProperties(
-          BindingFlags.FlattenHierarchy |
-          BindingFlags.Public |
-          BindingFlags.Instance);
-#endif
-    }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    internal static PropertyInfo[] GetTypePublicProperties(this Type subType)
+    //    {
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      var pis = new List<PropertyInfo>();
+    //      foreach (var pi in subType.GetRuntimeProperties())
+    //      {
+    //        var mi = pi.GetMethod ?? pi.SetMethod;
+    //        if (mi != null && mi.IsStatic) continue;
+    //        pis.Add(pi);
+    //      }
+    //      return pis.ToArray();
+    //#else
+    //      return subType.GetProperties(BindingFlagsHelper.InstancePublicOnlyLookup);
+    //#endif
+    //    }
 
     #endregion
 
-    #region -- GetTypesProperties --
+    #region -- GetTypeProperties --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    internal static PropertyInfo[] GetTypesProperties(this Type subType)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      var pis = new List<PropertyInfo>();
-      foreach (var pi in subType.GetRuntimeProperties())
-      {
-        var mi = pi.GetMethod ?? pi.SetMethod;
-        if (mi != null && mi.IsStatic) continue;
-        pis.Add(pi);
-      }
-      return pis.ToArray();
-#else
-      return subType.GetProperties(
-          BindingFlags.FlattenHierarchy |
-          BindingFlags.Public |
-          BindingFlags.NonPublic |
-          BindingFlags.Instance);
-#endif
-    }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    internal static PropertyInfo[] GetTypeProperties(this Type subType)
+    //    {
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      var pis = new List<PropertyInfo>();
+    //      foreach (var pi in subType.GetRuntimeProperties())
+    //      {
+    //        var mi = pi.GetMethod ?? pi.SetMethod;
+    //        if (mi != null && mi.IsStatic) continue;
+    //        pis.Add(pi);
+    //      }
+    //      return pis.ToArray();
+    //#else
+    //      return subType.GetProperties(BindingFlagsHelper.InstanceLookup);
+    //#endif
+    //    }
+
+    #endregion
+
+    #region -- GetTypeAllProperties / Properties --
+
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static PropertyInfo[] GetTypeAllProperties(this Type type)
+    //    {
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      return type.GetRuntimeProperties().ToArray();
+    //#else
+    //      return type.GetProperties(BindingFlagsHelper.DefaultLookupAll);
+    //#endif
+    //    }
 
     #endregion
 
@@ -854,43 +1037,19 @@ namespace System.Reflection
 
     #endregion
 
-    #region -- Fields --
+    #region -- GetTypeAllFields / GetAllFields / Fields --
 
 #if !NET40
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static FieldInfo[] Fields(this Type type)
+    public static FieldInfo[] GetTypeAllFields(this Type type)
     {
+      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
+
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
       return type.GetRuntimeFields().ToArray();
 #else
-      return type.GetFields(
-          BindingFlags.FlattenHierarchy |
-          BindingFlags.Instance |
-          BindingFlags.Static |
-          BindingFlags.Public |
-          BindingFlags.NonPublic);
-#endif
-    }
-
-    #endregion
-
-    #region -- Properties --
-
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static PropertyInfo[] Properties(this Type type)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeProperties().ToArray();
-#else
-      return type.GetProperties(
-          BindingFlags.FlattenHierarchy |
-          BindingFlags.Instance |
-          BindingFlags.Static |
-          BindingFlags.Public |
-          BindingFlags.NonPublic);
+      return type.GetFields(BindingFlagsHelper.DefaultLookupAll);
 #endif
     }
 
@@ -898,41 +1057,56 @@ namespace System.Reflection
 
     #region -- GetAllFields --
 
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static FieldInfo[] GetAllFields(this Type type)
+    //    {
+    //      if (type.IsInterface())
+    //      {
+    //        return CuteAnt.EmptyArray<FieldInfo>.Instance;
+    //      }
+
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      return type.GetRuntimeFields().ToArray();
+    //#else
+    //      return type.Fields();
+    //#endif
+    //    }
+
+    #endregion
+
+    #region -- GetTypeFields --
+
 #if !NET40
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static FieldInfo[] GetAllFields(this Type type)
+    public static FieldInfo[] GetTypeFields(this Type type)
     {
-      if (type.IsInterface())
-      {
-        return CuteAnt.EmptyArray<FieldInfo>.Instance;
-      }
+      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeFields().ToArray();
+      return type.GetRuntimeFields().Where(p => !p.IsStatic).ToArray();
 #else
-      return type.Fields();
+      return type.GetFields(BindingFlagsHelper.InstanceLookup);
 #endif
     }
 
     #endregion
 
-    #region -- GetPublicFields --
+    #region -- GetTypePublicFields --
 
 #if !NET40
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static FieldInfo[] GetPublicFields(this Type type)
+    public static FieldInfo[] GetTypePublicFields(this Type type)
     {
-      if (type.IsInterface())
-      {
-        return CuteAnt.EmptyArray<FieldInfo>.Instance;
-      }
+      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
       return type.GetRuntimeFields().Where(p => p.IsPublic && !p.IsStatic).ToArray();
 #else
-      return type.GetFields(BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Instance).ToArray();
+      return type.GetFields(BindingFlagsHelper.InstancePublicOnlyLookup);
 #endif
     }
 
@@ -952,7 +1126,7 @@ namespace System.Reflection
       members.AddRange(type.GetPublicProperties());
       return members.ToArray();
 #else
-      return type.GetMembers(BindingFlags.Public | BindingFlags.Instance);
+      return type.GetMembers(BindingFlagsHelper.InstancePublicOnlyLookup);
 #endif
     }
 
@@ -971,7 +1145,7 @@ namespace System.Reflection
       members.AddRange(type.GetPublicProperties());
       return members.ToArray();
 #else
-      return type.GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+      return type.GetMembers(BindingFlagsHelper.InstancePublicOnlyLookup);
 #endif
     }
 
@@ -987,7 +1161,7 @@ namespace System.Reflection
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
       return type.GetMethodInfo(methodName);
 #else
-      return type.GetMethod(methodName, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+      return type.GetMethod(methodName, BindingFlagsHelper.StaticLookup);
 #endif
     }
 
@@ -1003,7 +1177,7 @@ namespace System.Reflection
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
       return type.GetMethodInfo(methodName);
 #else
-      return type.GetMethod(methodName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+      return type.GetMethod(methodName, BindingFlagsHelper.InstanceLookup);
 #endif
     }
 
@@ -1025,15 +1199,15 @@ namespace System.Reflection
 
     #endregion
 
-    #region -- Interfaces --
+    #region -- GetImplementedInterfaces --
 
 #if !NET40
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-    public static Type[] Interfaces(this Type type)
+    public static IEnumerable<Type> GetImplementedInterfaces(this Type type)
     {
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetTypeInfo().ImplementedInterfaces.ToArray();
+      return type.GetTypeInfo().ImplementedInterfaces;
       //return type.GetTypeInfo().ImplementedInterfaces
       //    .FirstOrDefault(x => !x.GetTypeInfo().ImplementedInterfaces
       //        .Any(y => y.GetTypeInfo().ImplementedInterfaces.Contains(y)));
@@ -1054,7 +1228,7 @@ namespace System.Reflection
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
       return type.GetRuntimeProperties().ToArray();
 #else
-      return type.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+      return type.GetProperties(BindingFlagsHelper.InstanceLookup);
 #endif
     }
 
@@ -1099,8 +1273,8 @@ namespace System.Reflection
       return null;
 #else
       return types == null
-          ? type.GetMethod(methodName, BindingFlags.Public | BindingFlags.Static)
-          : type.GetMethod(methodName, BindingFlags.Public | BindingFlags.Static, null, types, null);
+          ? type.GetMethod(methodName, BindingFlagsHelper.StaticPublicOnlyLookup)
+          : type.GetMethod(methodName, BindingFlagsHelper.StaticPublicOnlyLookup, null, types, null);
 #endif
     }
 
@@ -1129,7 +1303,7 @@ namespace System.Reflection
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
       return type.GetRuntimeField(fieldName);
 #else
-      return type.GetField(fieldName, BindingFlags.Public | BindingFlags.Static);
+      return type.GetField(fieldName, BindingFlagsHelper.StaticPublicOnlyLookup);
 #endif
     }
 
@@ -1254,7 +1428,7 @@ namespace System.Reflection
 #if (NETFX_CORE || PCL || NETSTANDARD1_1)
       return type.GetRuntimeFields().Where(p => !p.IsPublic && !p.IsStatic).ToArray();
 #else
-      return type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.SetField);
+      return type.GetFields(BindingFlagsHelper.InstanceNonPublicOnlyLookup | BindingFlags.SetField);
 #endif
     }
 
@@ -1500,14 +1674,14 @@ namespace System.Reflection
 
 #if !(NETFX_CORE || WP || PCL || NETSTANDARD1_1)
       return mi.ReflectedType.Name;
-#endif
-
+#else
       return null;
+#endif
     }
 
     #endregion
 
-    //    #region -- CreateDelegate --
+    #region -- CreateDelegate --
 
     //#if !NET40
     //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1533,7 +1707,7 @@ namespace System.Reflection
     //#endif
     //    }
 
-    //    #endregion
+    #endregion
 
     #region -- ElementType --
 

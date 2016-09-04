@@ -6,8 +6,6 @@ namespace System.Reflection
 {
   internal static class RuntimeReflectionExtensions
   {
-    private const BindingFlags everything = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
-
     private static void CheckAndThrow(Type t)
     {
       if (t == null) throw new ArgumentNullException("type");
@@ -23,24 +21,24 @@ namespace System.Reflection
     public static IEnumerable<PropertyInfo> GetRuntimeProperties(this Type type)
     {
       CheckAndThrow(type);
-      return type.GetProperties(everything);
+      return type.GetProperties(BindingFlagsHelper.MSRuntimeLookup);
     }
     public static IEnumerable<EventInfo> GetRuntimeEvents(this Type type)
     {
       CheckAndThrow(type);
-      return type.GetEvents(everything);
+      return type.GetEvents(BindingFlagsHelper.MSRuntimeLookup);
     }
 
     public static IEnumerable<MethodInfo> GetRuntimeMethods(this Type type)
     {
       CheckAndThrow(type);
-      return type.GetMethods(everything);
+      return type.GetMethods(BindingFlagsHelper.MSRuntimeLookup);
     }
 
     public static IEnumerable<FieldInfo> GetRuntimeFields(this Type type)
     {
       CheckAndThrow(type);
-      return type.GetFields(everything);
+      return type.GetFields(BindingFlagsHelper.MSRuntimeLookup);
     }
 
     public static PropertyInfo GetRuntimeProperty(this Type type, string name)
