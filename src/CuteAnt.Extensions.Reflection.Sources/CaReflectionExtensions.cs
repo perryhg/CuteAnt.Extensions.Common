@@ -1039,19 +1039,19 @@ namespace System.Reflection
 
     #region -- GetTypeAllFields / GetAllFields / Fields --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static FieldInfo[] GetTypeAllFields(this Type type)
-    {
-      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static FieldInfo[] GetTypeAllFields(this Type type)
+    //    {
+    //      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeFields().ToArray();
-#else
-      return type.GetFields(BindingFlagsHelper.DefaultLookupAll);
-#endif
-    }
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      return type.GetRuntimeFields().ToArray();
+    //#else
+    //      return type.GetFields(BindingFlagsHelper.DefaultLookupAll);
+    //#endif
+    //    }
 
     #endregion
 
@@ -1078,37 +1078,37 @@ namespace System.Reflection
 
     #region -- GetTypeFields --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static FieldInfo[] GetTypeFields(this Type type)
-    {
-      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static FieldInfo[] GetTypeFields(this Type type)
+    //    {
+    //      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeFields().Where(p => !p.IsStatic).ToArray();
-#else
-      return type.GetFields(BindingFlagsHelper.InstanceLookup);
-#endif
-    }
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      return type.GetRuntimeFields().Where(p => !p.IsStatic).ToArray();
+    //#else
+    //      return type.GetFields(BindingFlagsHelper.InstanceLookup);
+    //#endif
+    //    }
 
     #endregion
 
     #region -- GetTypePublicFields --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static FieldInfo[] GetTypePublicFields(this Type type)
-    {
-      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static FieldInfo[] GetTypePublicFields(this Type type)
+    //    {
+    //      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeFields().Where(p => p.IsPublic && !p.IsStatic).ToArray();
-#else
-      return type.GetFields(BindingFlagsHelper.InstancePublicOnlyLookup);
-#endif
-    }
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      return type.GetRuntimeFields().Where(p => p.IsPublic && !p.IsStatic).ToArray();
+    //#else
+    //      return type.GetFields(BindingFlagsHelper.InstancePublicOnlyLookup);
+    //#endif
+    //    }
 
     #endregion
 
@@ -1220,17 +1220,17 @@ namespace System.Reflection
 
     #region -- AllProperties --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static PropertyInfo[] AllProperties(this Type type)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeProperties().ToArray();
-#else
-      return type.GetProperties(BindingFlagsHelper.InstanceLookup);
-#endif
-    }
+//#if !NET40
+//    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+//#endif
+//    public static PropertyInfo[] AllProperties(this Type type)
+//    {
+//#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+//      return type.GetRuntimeProperties().ToArray();
+//#else
+//      return type.GetProperties(BindingFlagsHelper.InstanceLookup);
+//#endif
+//    }
 
     #endregion
 
@@ -1388,33 +1388,33 @@ namespace System.Reflection
 
     #region -- GetPropertyInfo --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static PropertyInfo GetPropertyInfo(this Type type, string propertyName)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeProperty(propertyName);
-#else
-      return type.GetProperty(propertyName);
-#endif
-    }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static PropertyInfo GetPropertyInfo(this Type type, string propertyName)
+    //    {
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      return type.GetRuntimeProperty(propertyName);
+    //#else
+    //      return type.GetProperty(propertyName);
+    //#endif
+    //    }
 
     #endregion
 
     #region -- GetFieldInfo --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static FieldInfo GetFieldInfo(this Type type, string fieldName)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeField(fieldName);
-#else
-      return type.GetField(fieldName);
-#endif
-    }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static FieldInfo GetFieldInfo(this Type type, string fieldName)
+    //    {
+    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //      return type.GetRuntimeField(fieldName);
+    //#else
+    //      return type.GetField(fieldName);
+    //#endif
+    //    }
 
     #endregion
 
@@ -1600,17 +1600,17 @@ namespace System.Reflection
 
     #region -- GetPropertyInfos --
 
-#if !NET40
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
-    public static PropertyInfo[] GetPropertyInfos(this Type type)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-      return type.GetRuntimeProperties().ToArray();
-#else
-      return type.GetProperties();
-#endif
-    }
+//#if !NET40
+//    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+//#endif
+//    public static PropertyInfo[] GetPropertyInfos(this Type type)
+//    {
+//#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+//      return type.GetRuntimeProperties().ToArray();
+//#else
+//      return type.GetProperties();
+//#endif
+//    }
 
     #endregion
 
