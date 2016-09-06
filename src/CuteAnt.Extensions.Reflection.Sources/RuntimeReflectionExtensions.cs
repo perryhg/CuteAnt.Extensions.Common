@@ -6,15 +6,15 @@ namespace System.Reflection
 {
   internal static class RuntimeReflectionExtensions
   {
-    private static void CheckAndThrow(Type t)
+    private static void CheckAndThrow(Type type)
     {
-      if (t == null) throw new ArgumentNullException("type");
+      if (type == null) throw new ArgumentNullException(nameof(type));
       //if (!(t is RuntimeType)) throw new ArgumentException(Environment.GetResourceString("Argument_MustBeRuntimeType"));
     }
 
-    private static void CheckAndThrow(MethodInfo m)
+    private static void CheckAndThrow(MethodInfo method)
     {
-      if (m == null) throw new ArgumentNullException("method");
+      if (method == null) throw new ArgumentNullException(nameof(method));
       //if (!(m is RuntimeMethodInfo)) throw new ArgumentException(Environment.GetResourceString("Argument_MustBeRuntimeMethodInfo"));
     }
 
@@ -70,7 +70,7 @@ namespace System.Reflection
     internal static InterfaceMapping GetRuntimeInterfaceMap(this TypeInfo typeInfo, Type interfaceType)
     {
       var type = typeInfo.AsType();
-      if (type == null) throw new ArgumentNullException("typeInfo");
+      if (type == null) throw new ArgumentNullException(nameof(typeInfo));
       //if (!(typeInfo is RuntimeType)) throw new ArgumentException(Environment.GetResourceString("Argument_MustBeRuntimeType"));
 
       return type.GetInterfaceMap(interfaceType);
@@ -78,7 +78,7 @@ namespace System.Reflection
 
     public static MethodInfo GetMethodInfo(this Delegate del)
     {
-      if (del == null) throw new ArgumentNullException("del");
+      if (del == null) throw new ArgumentNullException(nameof(del));
 
       return del.Method;
     }
