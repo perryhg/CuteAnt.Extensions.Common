@@ -1681,6 +1681,41 @@ namespace System.Reflection
 
     #endregion
 
+    #region -- GetDeclaringType --
+
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static Type GetDeclaringType(this Type type)
+    {
+      if (type.DeclaringType != null)
+        return type.DeclaringType;
+
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD1_1)
+      if (type.ReflectedType != null)
+        return type.ReflectedType;
+#endif
+
+      return null;
+    }
+
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static Type GetDeclaringType(this MemberInfo mi)
+    {
+      if (mi.DeclaringType != null)
+        return mi.DeclaringType;
+
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD1_1)
+      return mi.ReflectedType;
+#else
+      return null;
+#endif
+    }
+
+    #endregion
+
     #region -- CreateDelegate --
 
     //#if !NET40
