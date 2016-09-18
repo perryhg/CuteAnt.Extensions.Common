@@ -750,7 +750,7 @@ namespace System.Reflection
 #endif
     public static bool IsInterface(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsInterface;
 #else
       return type.IsInterface;
@@ -766,7 +766,7 @@ namespace System.Reflection
 #endif
     public static bool IsArray(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsArray;
 #else
       return type.IsArray;
@@ -782,7 +782,7 @@ namespace System.Reflection
 #endif
     public static bool IsValueType(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsValueType;
 #else
       return type.IsValueType;
@@ -798,7 +798,7 @@ namespace System.Reflection
 #endif
     public static bool IsGeneric(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsGenericType;
 #else
       return type.IsGenericType;
@@ -814,7 +814,7 @@ namespace System.Reflection
 #endif
     public static Type BaseType(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().BaseType;
 #else
       return type.BaseType;
@@ -830,7 +830,7 @@ namespace System.Reflection
 #endif
     public static Type GenericTypeDefinition(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().GetGenericTypeDefinition();
 #else
       return type.GetGenericTypeDefinition();
@@ -846,7 +846,7 @@ namespace System.Reflection
 #endif
     public static Type[] GetTypeInterfaces(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().ImplementedInterfaces.ToArray();
 #else
       return type.GetInterfaces();
@@ -874,7 +874,7 @@ namespace System.Reflection
 #endif
     public static Type[] GenericTypeArguments(this Type type) => GetTypeGenericArguments(type);
     //    {
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GenericTypeArguments;
     //#else
     //      return type.GetGenericArguments();
@@ -890,7 +890,7 @@ namespace System.Reflection
 #endif
     public static Type[] GetTypeGenericParameters(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().GenericTypeParameters;
 #else
       return type.IsGenericTypeDefinition ? type.GetGenericArguments() : Type.EmptyTypes;
@@ -906,7 +906,7 @@ namespace System.Reflection
 #endif
     public static ConstructorInfo GetEmptyConstructor(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().DeclaredConstructors.FirstOrDefault(c => c.GetParameters().Count() == 0);
 #else
       return type.GetConstructor(Type.EmptyTypes);
@@ -922,7 +922,7 @@ namespace System.Reflection
 #endif
     public static IEnumerable<ConstructorInfo> GetAllConstructors(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().DeclaredConstructors;
 #else
       return type.GetConstructors();
@@ -934,7 +934,7 @@ namespace System.Reflection
 #endif
     public static ConstructorInfo[] DeclaredConstructors(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().DeclaredConstructors.ToArray();
 #else
       return type.GetConstructors();
@@ -950,7 +950,7 @@ namespace System.Reflection
     //#endif
     //    internal static PropertyInfo[] GetTypePublicProperties(this Type subType)
     //    {
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      var pis = new List<PropertyInfo>();
     //      foreach (var pi in subType.GetRuntimeProperties())
     //      {
@@ -973,7 +973,7 @@ namespace System.Reflection
     //#endif
     //    internal static PropertyInfo[] GetTypeProperties(this Type subType)
     //    {
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      var pis = new List<PropertyInfo>();
     //      foreach (var pi in subType.GetRuntimeProperties())
     //      {
@@ -996,7 +996,7 @@ namespace System.Reflection
     //#endif
     //    public static PropertyInfo[] GetTypeAllProperties(this Type type)
     //    {
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GetRuntimeProperties().ToArray();
     //#else
     //      return type.GetProperties(BindingFlagsHelper.DefaultLookupAll);
@@ -1012,7 +1012,7 @@ namespace System.Reflection
 #endif
     public static Assembly GetAssembly(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().Assembly;
 #else
       return type.Assembly;
@@ -1028,7 +1028,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo GetMethod(this Type type, string methodName)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().GetDeclaredMethod(methodName);
 #else
       return type.GetMethod(methodName);
@@ -1046,7 +1046,7 @@ namespace System.Reflection
     //    {
     //      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GetRuntimeFields().ToArray();
     //#else
     //      return type.GetFields(BindingFlagsHelper.DefaultLookupAll);
@@ -1067,7 +1067,7 @@ namespace System.Reflection
     //        return CuteAnt.EmptyArray<FieldInfo>.Instance;
     //      }
 
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GetRuntimeFields().ToArray();
     //#else
     //      return type.Fields();
@@ -1085,7 +1085,7 @@ namespace System.Reflection
     //    {
     //      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GetRuntimeFields().Where(p => !p.IsStatic).ToArray();
     //#else
     //      return type.GetFields(BindingFlagsHelper.InstanceLookup);
@@ -1103,7 +1103,7 @@ namespace System.Reflection
     //    {
     //      if (type.IsInterface()) { return CuteAnt.EmptyArray<FieldInfo>.Instance; }
 
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GetRuntimeFields().Where(p => p.IsPublic && !p.IsStatic).ToArray();
     //#else
     //      return type.GetFields(BindingFlagsHelper.InstancePublicOnlyLookup);
@@ -1120,7 +1120,7 @@ namespace System.Reflection
     public static MemberInfo[] GetPublicMembers(this Type type)
     {
 
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       var members = new List<MemberInfo>();
       members.AddRange(type.GetRuntimeFields().Where(p => p.IsPublic && !p.IsStatic));
       members.AddRange(type.GetPublicProperties());
@@ -1139,7 +1139,7 @@ namespace System.Reflection
 #endif
     public static MemberInfo[] GetAllPublicMembers(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       var members = new List<MemberInfo>();
       members.AddRange(type.GetRuntimeFields().Where(p => p.IsPublic && !p.IsStatic));
       members.AddRange(type.GetPublicProperties());
@@ -1158,7 +1158,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo GetStaticMethod(this Type type, string methodName)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetMethodInfo(methodName);
 #else
       return type.GetMethod(methodName, BindingFlagsHelper.StaticLookup);
@@ -1174,7 +1174,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo GetInstanceMethod(this Type type, string methodName)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetMethodInfo(methodName);
 #else
       return type.GetMethod(methodName, BindingFlagsHelper.InstanceLookup);
@@ -1206,7 +1206,7 @@ namespace System.Reflection
 #endif
     public static IEnumerable<Type> GetImplementedInterfaces(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().ImplementedInterfaces;
       //return type.GetTypeInfo().ImplementedInterfaces
       //    .FirstOrDefault(x => !x.GetTypeInfo().ImplementedInterfaces
@@ -1220,17 +1220,17 @@ namespace System.Reflection
 
     #region -- AllProperties --
 
-//#if !NET40
-//    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-//#endif
-//    public static PropertyInfo[] AllProperties(this Type type)
-//    {
-//#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-//      return type.GetRuntimeProperties().ToArray();
-//#else
-//      return type.GetProperties(BindingFlagsHelper.InstanceLookup);
-//#endif
-//    }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static PropertyInfo[] AllProperties(this Type type)
+    //    {
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
+    //      return type.GetRuntimeProperties().ToArray();
+    //#else
+    //      return type.GetProperties(BindingFlagsHelper.InstanceLookup);
+    //#endif
+    //    }
 
     #endregion
 
@@ -1238,7 +1238,7 @@ namespace System.Reflection
 
     public static bool IsDynamic(this Assembly assembly)
     {
-#if __IOS__ || WP || NETFX_CORE || PCL || NETSTANDARD1_1
+#if __IOS__ || WP || NETFX_CORE || PCL || NETSTANDARD
       return false;
 #else
       try
@@ -1261,7 +1261,7 @@ namespace System.Reflection
 
     public static MethodInfo GetStaticMethod(this Type type, string methodName, Type[] types = null)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       foreach (MethodInfo method in type.GetTypeInfo().DeclaredMethods)
       {
         if (method.IsStatic && method.Name == methodName)
@@ -1284,7 +1284,7 @@ namespace System.Reflection
 
     public static object InvokeMethod(this Delegate fn, object instance, object[] parameters = null)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return fn.GetMethodInfo().Invoke(instance, parameters ?? new object[] { });
 #else
       return fn.Method.Invoke(instance, parameters ?? new object[] { });
@@ -1300,7 +1300,7 @@ namespace System.Reflection
 #endif
     public static FieldInfo GetPublicStaticField(this Type type, string fieldName)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetRuntimeField(fieldName);
 #else
       return type.GetField(fieldName, BindingFlagsHelper.StaticPublicOnlyLookup);
@@ -1316,7 +1316,7 @@ namespace System.Reflection
 #endif
     public static Delegate MakeDelegate(this MethodInfo mi, Type delegateType, bool throwOnBindFailure = true)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return mi.CreateDelegate(delegateType);
 #else
       return Delegate.CreateDelegate(delegateType, mi, throwOnBindFailure);
@@ -1332,7 +1332,7 @@ namespace System.Reflection
 #endif
     public static bool AssignableFrom(this Type type, Type fromType)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsAssignableFrom(fromType.GetTypeInfo());
 #else
       return type.IsAssignableFrom(fromType);
@@ -1344,7 +1344,7 @@ namespace System.Reflection
 #endif
     public static bool IsAssignableFromType(this Type type, Type fromType)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsAssignableFrom(fromType.GetTypeInfo());
 #else
       return type.IsAssignableFrom(fromType);
@@ -1360,7 +1360,7 @@ namespace System.Reflection
 #endif
     public static bool IsStandardClass(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       var typeInfo = type.GetTypeInfo();
       return typeInfo.IsClass && !typeInfo.IsAbstract && !typeInfo.IsInterface;
 #else
@@ -1377,7 +1377,7 @@ namespace System.Reflection
 #endif
     public static bool IsAbstract(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsAbstract;
 #else
       return type.IsAbstract;
@@ -1393,7 +1393,7 @@ namespace System.Reflection
     //#endif
     //    public static PropertyInfo GetPropertyInfo(this Type type, string propertyName)
     //    {
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GetRuntimeProperty(propertyName);
     //#else
     //      return type.GetProperty(propertyName);
@@ -1409,7 +1409,7 @@ namespace System.Reflection
     //#endif
     //    public static FieldInfo GetFieldInfo(this Type type, string fieldName)
     //    {
-    //#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
     //      return type.GetRuntimeField(fieldName);
     //#else
     //      return type.GetField(fieldName);
@@ -1425,7 +1425,7 @@ namespace System.Reflection
 #endif
     public static FieldInfo[] GetWritableFields(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetRuntimeFields().Where(p => !p.IsPublic && !p.IsStatic).ToArray();
 #else
       return type.GetFields(BindingFlagsHelper.InstanceNonPublicOnlyLookup | BindingFlags.SetField);
@@ -1441,7 +1441,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo PropertySetMethod(this PropertyInfo pi, bool nonPublic = true)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return pi.SetMethod;
 #else
       return pi.GetSetMethod(nonPublic);
@@ -1453,7 +1453,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo SetMethodInfo(this PropertyInfo pi, bool nonPublic = true)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return pi.SetMethod;
 #else
       return pi.GetSetMethod(nonPublic);
@@ -1466,7 +1466,7 @@ namespace System.Reflection
 
     public static MethodInfo GetMethodInfo(this Type type, string methodName, Type[] types = null)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetRuntimeMethods().FirstOrDefault(p => p.Name.Equals(methodName));
 #else
       return types == null
@@ -1480,7 +1480,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo GetMethodInfo(this PropertyInfo pi, bool nonPublic = true)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return pi.GetMethod;
 #else
       return pi.GetGetMethod(nonPublic);
@@ -1492,7 +1492,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo PropertyGetMethod(this PropertyInfo pi, bool nonPublic = false)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       var mi = pi.GetMethod;
       return mi != null && (nonPublic || mi.IsPublic) ? mi : null;
 #else
@@ -1509,7 +1509,7 @@ namespace System.Reflection
 #endif
     public static bool InstanceOfType(this Type type, object instance)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return instance.GetType().IsInstanceOf(type);
 #else
       return type.IsInstanceOfType(instance);
@@ -1525,7 +1525,7 @@ namespace System.Reflection
 #endif
     public static bool IsClass(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsClass;
 #else
       return type.IsClass;
@@ -1541,7 +1541,7 @@ namespace System.Reflection
 #endif
     public static bool IsEnum(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsEnum;
 #else
       return type.IsEnum;
@@ -1557,7 +1557,7 @@ namespace System.Reflection
 #endif
     public static bool IsEnumFlags(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsEnum && type.FirstAttribute<FlagsAttribute>() != null;
 #else
       return type.IsEnum && type.FirstAttribute<FlagsAttribute>() != null;
@@ -1573,7 +1573,7 @@ namespace System.Reflection
 #endif
     public static bool IsUnderlyingEnum(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsEnum;
 #else
       return type.IsEnum || type.UnderlyingSystemType.IsEnum;
@@ -1589,7 +1589,7 @@ namespace System.Reflection
 #endif
     public static MethodInfo[] GetMethodInfos(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetRuntimeMethods().ToArray();
 #else
       return type.GetMethods();
@@ -1600,17 +1600,17 @@ namespace System.Reflection
 
     #region -- GetPropertyInfos --
 
-//#if !NET40
-//    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-//#endif
-//    public static PropertyInfo[] GetPropertyInfos(this Type type)
-//    {
-//#if (NETFX_CORE || PCL || NETSTANDARD1_1)
-//      return type.GetRuntimeProperties().ToArray();
-//#else
-//      return type.GetProperties();
-//#endif
-//    }
+    //#if !NET40
+    //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    //#endif
+    //    public static PropertyInfo[] GetPropertyInfos(this Type type)
+    //    {
+    //#if (NETFX_CORE || PCL || NETSTANDARD)
+    //      return type.GetRuntimeProperties().ToArray();
+    //#else
+    //      return type.GetProperties();
+    //#endif
+    //    }
 
     #endregion
 
@@ -1621,7 +1621,7 @@ namespace System.Reflection
 #endif
     public static bool IsGenericTypeDefinition(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsGenericTypeDefinition;
 #else
       return type.IsGenericTypeDefinition;
@@ -1637,10 +1637,23 @@ namespace System.Reflection
 #endif
     public static bool IsGenericType(this Type type)
     {
-#if (NETFX_CORE || PCL || NETSTANDARD1_1)
+#if (NETFX_CORE || PCL || NETSTANDARD)
       return type.GetTypeInfo().IsGenericType;
 #else
       return type.IsGenericType;
+#endif
+    }
+
+    #endregion
+
+    #region -- ContainsGenericParameters --
+
+    public static bool ContainsGenericParameters(this Type type)
+    {
+#if (NETFX_CORE || PCL || NETSTANDARD)
+      return type.GetTypeInfo().ContainsGenericParameters;
+#else
+      return type.ContainsGenericParameters;
 #endif
     }
 
@@ -1656,7 +1669,7 @@ namespace System.Reflection
       if (type.DeclaringType != null)
         return type.DeclaringType.Name;
 
-#if !(NETFX_CORE || WP || PCL || NETSTANDARD1_1)
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
       if (type.ReflectedType != null)
         return type.ReflectedType.Name;
 #endif
@@ -1672,7 +1685,7 @@ namespace System.Reflection
       if (mi.DeclaringType != null)
         return mi.DeclaringType.Name;
 
-#if !(NETFX_CORE || WP || PCL || NETSTANDARD1_1)
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
       return mi.ReflectedType.Name;
 #else
       return null;
@@ -1691,7 +1704,7 @@ namespace System.Reflection
       if (type.DeclaringType != null)
         return type.DeclaringType;
 
-#if !(NETFX_CORE || WP || PCL || NETSTANDARD1_1)
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
       if (type.ReflectedType != null)
         return type.ReflectedType;
 #endif
@@ -1707,7 +1720,7 @@ namespace System.Reflection
       if (mi.DeclaringType != null)
         return mi.DeclaringType;
 
-#if !(NETFX_CORE || WP || PCL || NETSTANDARD1_1)
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
       return mi.ReflectedType;
 #else
       return null;
@@ -1723,7 +1736,7 @@ namespace System.Reflection
     //#endif
     //    public static Delegate CreateDelegate(this MethodInfo methodInfo, Type delegateType)
     //    {
-    //#if PCL || NETSTANDARD1_1
+    //#if PCL || NETSTANDARD
     //      return methodInfo.CreateDelegate(delegateType);
     //#else
     //      return Delegate.CreateDelegate(delegateType, methodInfo);
@@ -1735,7 +1748,7 @@ namespace System.Reflection
     //#endif
     //    public static Delegate CreateDelegate(this MethodInfo methodInfo, Type delegateType, object target)
     //    {
-    //#if PCL || NETSTANDARD1_1
+    //#if PCL || NETSTANDARD
     //      return methodInfo.CreateDelegate(delegateType, target);
     //#else
     //      return Delegate.CreateDelegate(delegateType, target, methodInfo);
