@@ -791,6 +791,19 @@ namespace System.Reflection
 
     #endregion
 
+    #region -- IsPrimitive --
+
+    public static bool IsPrimitive(this Type type)
+    {
+#if NETSTANDARD
+      return type.GetTypeInfo().IsPrimitive;
+#else
+      return type.IsPrimitive;
+#endif
+    }
+
+    #endregion
+
     #region -- IsGeneric --
 
 #if !NET40
@@ -802,6 +815,19 @@ namespace System.Reflection
       return type.GetTypeInfo().IsGenericType;
 #else
       return type.IsGenericType;
+#endif
+    }
+
+    #endregion
+
+    #region -- UnderlyingSystemType --
+
+    public static Type UnderlyingSystemType(this Type type)
+    {
+#if NETSTANDARD
+      return type.GetTypeInfo().AsType();
+#else
+      return type.UnderlyingSystemType;
 #endif
     }
 
