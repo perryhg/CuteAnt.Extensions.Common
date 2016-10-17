@@ -11,7 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CaDatetimeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CaTicksExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DateTimeUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ticks.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TimeoutShim.cs" />
   </ItemGroup>
