@@ -22,6 +22,7 @@ dotnet "pack" "..\src\CuteAnt.Extensions.SecurityHelper.Sources" -c "Release" -o
 dotnet "pack" "..\src\CuteAnt.Extensions.Sources" -c "Release" -o "." --version-suffix "%VERSION_SUFFIX%"
 dotnet "pack" "..\src\CuteAnt.Extensions.TaskAwaiter.Sources" -c "Release" -o "." --version-suffix "%VERSION_SUFFIX%"
 dotnet "pack" "..\src\CuteAnt.Extensions.TypeNameHelper.Sources" -c "Release" -o "." --version-suffix "%VERSION_SUFFIX%"
+dotnet "pack" "..\src\CuteAnt.Extensions.StackTrace.Sources" -c "Release" -o "." --version-suffix "%VERSION_SUFFIX%"
 dotnet "pack" "..\src\Nito.AsyncEx.ExceptionEnlightenment.Sources" -c "Release" -o "." --version-suffix "%VERSION_SUFFIX%"
 dotnet "pack" "..\src\Nito.AsyncEx.Tasks.Sources" -c "Release" -o "." --version-suffix "%VERSION_SUFFIX%"
 dotnet "pack" "..\src\RingBuffer.Sources" -c "Release" -o "." --version-suffix "%VERSION_SUFFIX%"

@@ -8,18 +8,16 @@
   "dependencies": {
   },
   "frameworks": {
-    "net40": {
-      "buildOptions": {
-        "define": [ "DESKTOPCLR" ]
-      },
-      "dependencies": {
-      }
-    },
     "net451": {
       "buildOptions": {
         "define": [ "DESKTOPCLR", "NET_4_0_GREATER" ]
       },
       "dependencies": {
+      }
+    },
+    "netstandard1.3": {
+      "buildOptions": {
+        "define": [ "NETSTANDARD", "NETSTANDARD1_3" ]
       }
     }
   }

@@ -88,6 +88,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspecs", "nuspecs", "{BFA6
 		nuspecs\publishing.cmd = nuspecs\publishing.cmd
 	EndProjectSection
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CuteAnt.Extensions.StackTrace.Sources", "src\CuteAnt.Extensions.StackTrace.Sources\CuteAnt.Extensions.StackTrace.Sources.xproj", "{21157164-261B-48A8-812E-87BA279B5CFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -202,6 +204,10 @@ Global
 		{EF29C2FB-819D-43A0-B310-419FEE342F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF29C2FB-819D-43A0-B310-419FEE342F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF29C2FB-819D-43A0-B310-419FEE342F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21157164-261B-48A8-812E-87BA279B5CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21157164-261B-48A8-812E-87BA279B5CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21157164-261B-48A8-812E-87BA279B5CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21157164-261B-48A8-812E-87BA279B5CFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -241,5 +247,6 @@ Global
 		{D4AEE1BC-62CF-443D-82E9-798CDC4BEDAE} = {8CA0498D-3343-4329-B66C-3553F19C7B83}
 		{A0F8D4A4-5B27-440F-B64F-204619377A19} = {8CA0498D-3343-4329-B66C-3553F19C7B83}
 		{E196FB2A-6278-44DE-AF22-1ACB69897C82} = {8CA0498D-3343-4329-B66C-3553F19C7B83}
+		{21157164-261B-48A8-812E-87BA279B5CFE} = {D4AEE1BC-62CF-443D-82E9-798CDC4BEDAE}
 	EndGlobalSection
 EndGlobal
