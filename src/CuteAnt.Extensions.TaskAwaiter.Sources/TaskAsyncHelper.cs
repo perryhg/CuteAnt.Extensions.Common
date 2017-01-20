@@ -26,8 +26,8 @@ namespace CuteAnt.AsyncEx
   internal static class TaskAsyncHelper
   {
     private static readonly Task _emptyTask = TaskCache<AsyncVoid>.Empty;
-    private static readonly Task<bool> _trueTask = TaskCache<bool>.Empty;
-    private static readonly Task<bool> _falseTask = TaskCache<bool>.Empty;
+    private static readonly Task<bool> _trueTask = CreateCachedTaskFromResult(true);
+    private static readonly Task<bool> _falseTask = CreateCachedTaskFromResult(false);
 
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "This is a shared file")]
     public static Task Empty => _emptyTask;
