@@ -393,33 +393,33 @@ namespace CuteAnt.AsyncEx
 
     #region --& Then extesions &--
 
-    public static Task Then(this Task task, Func<Task, Task> successor)
-    {
-      switch (task.Status)
-      {
-        case TaskStatus.Faulted:
-        case TaskStatus.Canceled:
-          return task;
+    //public static Task Then(this Task task, Func<Task, Task> successor)
+    //{
+    //  switch (task.Status)
+    //  {
+    //    case TaskStatus.Faulted:
+    //    case TaskStatus.Canceled:
+    //      return task;
 
-        case TaskStatus.RanToCompletion:
-          return FromMethod(successor, task);
+    //    case TaskStatus.RanToCompletion:
+    //      return FromMethod(successor, task);
 
-        default:
-          return GenericDelegates<object, Task, Task, object, object>.ThenWithArgs(task, successor, task);
-      }
-      //var tcs = new TaskCompletionSource<object>();
-      //task.ContinueWith(t =>
-      //{
-      //  if (t.IsFaulted)
-      //    tcs.TrySetException(t.Exception.InnerExceptions);
-      //  else if (t.IsCanceled)
-      //    tcs.TrySetCanceled();
-      //  else
-      //    tcs.TrySetResult(fn(t));
-      //}, TaskContinuationOptions.ExecuteSynchronously);
+    //    default:
+    //      return GenericDelegates<object, Task, Task, object, object>.ThenWithArgs(task, successor, task);
+    //  }
+    //  //var tcs = new TaskCompletionSource<object>();
+    //  //task.ContinueWith(t =>
+    //  //{
+    //  //  if (t.IsFaulted)
+    //  //    tcs.TrySetException(t.Exception.InnerExceptions);
+    //  //  else if (t.IsCanceled)
+    //  //    tcs.TrySetCanceled();
+    //  //  else
+    //  //    tcs.TrySetResult(fn(t));
+    //  //}, TaskContinuationOptions.ExecuteSynchronously);
 
-      //return tcs.Task;
-    }
+    //  //return tcs.Task;
+    //}
 
 
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "This is a shared file")]
