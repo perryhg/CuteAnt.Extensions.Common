@@ -933,7 +933,7 @@ namespace System.Reflection
     public static ConstructorInfo GetEmptyConstructor(this Type type)
     {
 #if (NETFX_CORE || PCL || NETSTANDARD)
-      return type.GetTypeInfo().DeclaredConstructors.FirstOrDefault(c => c.GetParameters().Count() == 0);
+      return type.GetTypeInfo().DeclaredConstructors.FirstOrDefault(c => c.GetParameters().Length == 0);
 #else
       return type.GetConstructor(Type.EmptyTypes);
 #endif
