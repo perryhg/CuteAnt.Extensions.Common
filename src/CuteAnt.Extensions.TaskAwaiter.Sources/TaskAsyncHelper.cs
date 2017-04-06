@@ -1135,7 +1135,7 @@ namespace CuteAnt.AsyncEx
 
     #endregion
 
-#if !NETFX_CORE
+#if !NETFX_CORE && !NETSTANDARD
 
     #region == struct CulturePair ==
 
@@ -1207,7 +1207,7 @@ namespace CuteAnt.AsyncEx
 
     internal static Task ContinueWithPreservedCulture(this Task task, Action<Task> continuationAction, TaskContinuationOptions continuationOptions)
     {
-#if NETFX_CORE
+#if NETFX_CORE || NETSTANDARD
       // The Thread class is not available on WinRT
       return task.ContinueWith(continuationAction, continuationOptions);
 #else
@@ -1218,7 +1218,7 @@ namespace CuteAnt.AsyncEx
 
     internal static Task ContinueWithPreservedCulture<T>(this Task<T> task, Action<Task<T>> continuationAction, TaskContinuationOptions continuationOptions)
     {
-#if NETFX_CORE
+#if NETFX_CORE || NETSTANDARD
       // The Thread class is not available on WinRT
       return task.ContinueWith(continuationAction, continuationOptions);
 #else
@@ -1230,7 +1230,7 @@ namespace CuteAnt.AsyncEx
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "This is a shared file")]
     internal static Task<TResult> ContinueWithPreservedCulture<T, TResult>(this Task<T> task, Func<Task<T>, TResult> continuationAction, TaskContinuationOptions continuationOptions)
     {
-#if NETFX_CORE
+#if NETFX_CORE || NETSTANDARD
       // The Thread class is not available on WinRT
       return task.ContinueWith(continuationAction, continuationOptions);
 #else
