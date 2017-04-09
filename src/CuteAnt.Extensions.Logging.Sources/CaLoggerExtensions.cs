@@ -16,11 +16,13 @@ namespace Microsoft.Extensions.Logging
   {
     #region -- GetCurrentClassLogger --
 
+#if DESKTOPCLR
     public static ILogger GetCurrentClassLogger(this ILoggerFactory loggerFactory)
     {
       var stackFrame = new StackFrame(1, false);
       return loggerFactory.CreateLogger(stackFrame.GetMethod().DeclaringType);
     }
+#endif
 
     #endregion
 
