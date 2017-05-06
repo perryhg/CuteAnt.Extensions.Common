@@ -164,7 +164,7 @@ namespace CuteAnt.IO
       using (var inputStream = new MemoryStream(compressedData, offset, count))
       {
         var bufferManager = BufferManager.GlobalManager;
-        var bufferSize = compressedData.Length * 2;
+        var bufferSize = count * 2;
         var buffer = bufferManager.TakeBuffer(bufferSize);
         try
         {
@@ -195,7 +195,7 @@ namespace CuteAnt.IO
 
       using (var inputStream = new MemoryStream(compressedData, offset, count))
       {
-        var bufferSize = compressedData.Length * 2;
+        var bufferSize = count * 2;
         var buffer = bufferManager.TakeBuffer(bufferSize);
         try
         {
