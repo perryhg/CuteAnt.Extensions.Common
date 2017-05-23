@@ -619,7 +619,7 @@ namespace System.Reflection
 #if !NET40
       return member.CustomAttributes;
 #else
-      return member.GetCustomAttributesData(); ;
+      return member.GetCustomAttributesData();
 #endif
     }
 
@@ -663,7 +663,7 @@ namespace System.Reflection
 #if !NET40
       return attrdata.AttributeType;
 #else
-      return attrdata.Constructor.DeclaringType; ;
+      return attrdata.Constructor.DeclaringType;
 #endif
     }
 
@@ -717,7 +717,7 @@ namespace System.Reflection
 #if !NET40
       return property.SetMethod;
 #else
-      return property.GetSetMethod(true); ;
+      return property.GetSetMethod(true);
 #endif
     }
 
