@@ -9,13 +9,14 @@ namespace System.Threading.Tasks
     /// If the task factory does not specify a task scheduler, the thread pool task scheduler is used.</summary>
     /// <param name="this">The <see cref="TaskFactory"/>. May not be <c>null</c>.</param>
     /// <param name="action">The action delegate to execute. May not be <c>null</c>.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/> that will be assigned to the new task.</param>
     /// <returns>The started task.</returns>
-    internal static Task Run(this TaskFactory @this, Action action)
+    internal static Task Run(this TaskFactory @this, Action action, CancellationToken cancellationToken = default(CancellationToken))
     {
       if (@this == null) throw new ArgumentNullException(nameof(@this));
       if (action == null) throw new ArgumentNullException(nameof(action));
 
-      return @this.StartNew(action, @this.CancellationToken,
+      return @this.StartNew(action, cancellationToken,
           AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
 
@@ -23,13 +24,15 @@ namespace System.Threading.Tasks
     /// If the task factory does not specify a task scheduler, the thread pool task scheduler is used.</summary>
     /// <param name="this">The <see cref="TaskFactory"/>. May not be <c>null</c>.</param>
     /// <param name="action">The action delegate to execute. May not be <c>null</c>.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/> that will be assigned to the new task.</param>
+    /// <see cref="T:System.Threading.Tasks.Task{TResult}"/>.</param>
     /// <returns>The started task.</returns>
-    internal static Task<TResult> Run<TResult>(this TaskFactory @this, Func<TResult> action)
+    internal static Task<TResult> Run<TResult>(this TaskFactory @this, Func<TResult> action, CancellationToken cancellationToken = default(CancellationToken))
     {
       if (@this == null) throw new ArgumentNullException(nameof(@this));
       if (action == null) throw new ArgumentNullException(nameof(action));
 
-      return @this.StartNew(action, @this.CancellationToken,
+      return @this.StartNew(action, cancellationToken,
           AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
 
@@ -37,13 +40,15 @@ namespace System.Threading.Tasks
     /// If the task factory does not specify a task scheduler, the thread pool task scheduler is used.</summary>
     /// <param name="this">The <see cref="TaskFactory"/>. May not be <c>null</c>.</param>
     /// <param name="action">The action delegate to execute. May not be <c>null</c>.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/> that will be assigned to the new task.</param>
+    /// <see cref="T:System.Threading.Tasks.Task">Task.</see></param>
     /// <returns>The started task.</returns>
-    internal static Task Run(this TaskFactory @this, Func<Task> action)
+    internal static Task Run(this TaskFactory @this, Func<Task> action, CancellationToken cancellationToken = default(CancellationToken))
     {
       if (@this == null) throw new ArgumentNullException(nameof(@this));
       if (action == null) throw new ArgumentNullException(nameof(action));
 
-      return @this.StartNew(action, @this.CancellationToken,
+      return @this.StartNew(action, cancellationToken,
           AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default).Unwrap();
     }
 
@@ -51,13 +56,15 @@ namespace System.Threading.Tasks
     /// If the task factory does not specify a task scheduler, the thread pool task scheduler is used.</summary>
     /// <param name="this">The <see cref="TaskFactory"/>. May not be <c>null</c>.</param>
     /// <param name="action">The action delegate to execute. May not be <c>null</c>.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/> that will be assigned to the new task.</param>
+    /// <see cref="T:System.Threading.Tasks.Task{TResult}"/>.</param>
     /// <returns>The started task.</returns>
-    internal static Task<TResult> Run<TResult>(this TaskFactory @this, Func<Task<TResult>> action)
+    internal static Task<TResult> Run<TResult>(this TaskFactory @this, Func<Task<TResult>> action, CancellationToken cancellationToken = default(CancellationToken))
     {
       if (@this == null) throw new ArgumentNullException(nameof(@this));
       if (action == null) throw new ArgumentNullException(nameof(action));
 
-      return @this.StartNew(action, @this.CancellationToken,
+      return @this.StartNew(action, cancellationToken,
           AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default).Unwrap();
     }
   }

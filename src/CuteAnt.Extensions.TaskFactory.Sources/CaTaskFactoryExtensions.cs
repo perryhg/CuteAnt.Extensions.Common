@@ -338,51 +338,45 @@ namespace System.Threading.Tasks
 
     internal static Task Run<T1>(this TaskFactory @this,
       Action<T1> action, T1 arg1,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2>(this TaskFactory @this,
       Action<T1, T2> action, T1 arg1, T2 arg2,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3>(this TaskFactory @this,
       Action<T1, T2, T3> action, T1 arg1, T2 arg2, T3 arg3,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3, T4>(this TaskFactory @this,
       Action<T1, T2, T3, T4> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, arg4, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3, T4, T5>(this TaskFactory @this,
       Action<T1, T2, T3, T4, T5> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, arg4, arg5, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3, T4, T5, T6>(this TaskFactory @this,
       Action<T1, T2, T3, T4, T5, T6> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, arg4, arg5, arg6, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
 
 
@@ -390,51 +384,45 @@ namespace System.Threading.Tasks
 
     internal static Task Run<T1>(this TaskFactory @this,
       Func<T1, Task> action, T1 arg1,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2>(this TaskFactory @this,
       Func<T1, T2, Task> action, T1 arg1, T2 arg2,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3>(this TaskFactory @this,
       Func<T1, T2, T3, Task> action, T1 arg1, T2 arg2, T3 arg3,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3, T4>(this TaskFactory @this,
       Func<T1, T2, T3, T4, Task> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, arg4, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3, T4, T5>(this TaskFactory @this,
       Func<T1, T2, T3, T4, T5, Task> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, arg4, arg5, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task Run<T1, T2, T3, T4, T5, T6>(this TaskFactory @this,
       Func<T1, T2, T3, T4, T5, T6, Task> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, action, arg1, arg2, arg3, arg4, arg5, arg6, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
 
 
@@ -442,51 +430,45 @@ namespace System.Threading.Tasks
 
     internal static Task<TResult> Run<T1, TResult>(this TaskFactory @this,
       Func<T1, TResult> function, T1 arg1,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, TResult>(this TaskFactory @this,
       Func<T1, T2, TResult> function, T1 arg1, T2 arg2,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, TResult> function, T1 arg1, T2 arg2, T3 arg3,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, T4, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, T4, TResult> function, T1 arg1, T2 arg2, T3 arg3, T4 arg4,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, arg4, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, T4, T5, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, T4, T5, TResult> function, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, arg4, arg5, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, T4, T5, T6, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, T4, T5, T6, TResult> function, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, arg4, arg5, arg6, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
 
 
@@ -494,51 +476,45 @@ namespace System.Threading.Tasks
 
     internal static Task<TResult> Run<T1, TResult>(this TaskFactory @this,
       Func<T1, Task<TResult>> function, T1 arg1,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, TResult>(this TaskFactory @this,
       Func<T1, T2, Task<TResult>> function, T1 arg1, T2 arg2,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, Task<TResult>> function, T1 arg1, T2 arg2, T3 arg3,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, T4, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, T4, Task<TResult>> function, T1 arg1, T2 arg2, T3 arg3, T4 arg4,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, arg4, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, T4, T5, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, T4, T5, Task<TResult>> function, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, arg4, arg5, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
     internal static Task<TResult> Run<T1, T2, T3, T4, T5, T6, TResult>(this TaskFactory @this,
       Func<T1, T2, T3, T4, T5, T6, Task<TResult>> function, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6,
-      TaskCreationOptions creationOptions = TaskCreationOptions.None,
       CancellationToken cancellationToken = default(CancellationToken))
     {
       return StartNew(@this, function, arg1, arg2, arg3, arg4, arg5, arg6, cancellationToken,
-          AsyncUtils.GetCreationOptions(creationOptions), @this.Scheduler ?? TaskScheduler.Default);
+          AsyncUtils.GetCreationOptions(@this.CreationOptions), @this.Scheduler ?? TaskScheduler.Default);
     }
 
     #endregion
