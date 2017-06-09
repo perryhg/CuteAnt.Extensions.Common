@@ -1047,6 +1047,20 @@ namespace System.Reflection
 
     #endregion
 
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static Module GetModule(this Type type)
+    {
+      if (type == null) return null;
+
+#if PCL || NETSTANDARD
+      return type.GetTypeInfo().Module;
+#else
+      return type.Module;
+#endif
+    }
+
     #region -- GetMethod --
 
 #if !NET40
