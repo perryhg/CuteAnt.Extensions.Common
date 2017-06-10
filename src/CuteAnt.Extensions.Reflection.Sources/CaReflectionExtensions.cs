@@ -1047,6 +1047,8 @@ namespace System.Reflection
 
     #endregion
 
+    #region -- GetModule --
+
 #if !NET40
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
@@ -1060,6 +1062,8 @@ namespace System.Reflection
       return type.Module;
 #endif
     }
+
+    #endregion
 
     #region -- GetMethod --
 
@@ -1205,6 +1209,28 @@ namespace System.Reflection
 #endif
     }
 
+    public static MethodInfo GetStaticMethod(this Type type, string methodName, Type[] types = null)
+    {
+#if (NETFX_CORE || PCL || NETSTANDARD)
+      foreach (MethodInfo method in type.GetTypeInfo().DeclaredMethods)
+      {
+        if (method.IsStatic && method.Name == methodName)
+        {
+          if (types == null) return method;
+
+          var methodParams = method.GetParameters().Select(p => p.ParameterType);
+          if (methodParams.SequenceEqual(types)) return method;
+        }
+      }
+
+      return null;
+#else
+      return types == null
+          ? type.GetMethod(methodName, BindingFlagsHelper.StaticPublicOnlyLookup)
+          : type.GetMethod(methodName, BindingFlagsHelper.StaticPublicOnlyLookup, null, types, null);
+#endif
+    }
+
     #endregion
 
     #region -- GetInstanceMethod --
@@ -1292,29 +1318,6 @@ namespace System.Reflection
         //Ignore assembly.Location not supported in a dynamic assembly.
         return true;
       }
-#endif
-    }
-
-    #endregion
-
-    #region -- GetStaticMethod --
-
-    public static MethodInfo GetStaticMethod(this Type type, string methodName, Type[] types = null)
-    {
-#if (NETFX_CORE || PCL || NETSTANDARD)
-      foreach (MethodInfo method in type.GetTypeInfo().DeclaredMethods)
-      {
-        if (method.IsStatic && method.Name == methodName)
-        {
-          return method;
-        }
-      }
-
-      return null;
-#else
-      return types == null
-          ? type.GetMethod(methodName, BindingFlagsHelper.StaticPublicOnlyLookup)
-          : type.GetMethod(methodName, BindingFlagsHelper.StaticPublicOnlyLookup, null, types, null);
 #endif
     }
 
@@ -1718,12 +1721,12 @@ namespace System.Reflection
 #endif
     public static string GetDeclaringTypeName(this Type type)
     {
-      if (type.DeclaringType != null)
-        return type.DeclaringType.Name;
+      var declaringType = type.DeclaringType;
+      if (declaringType != null) { return declaringType.Name; }
 
 #if !(NETFX_CORE || WP || PCL || NETSTANDARD)
-      if (type.ReflectedType != null)
-        return type.ReflectedType.Name;
+      var reflectedType = type.ReflectedType;
+      if (reflectedType != null) { return reflectedType.Name; }
 #endif
 
       return null;
@@ -1734,8 +1737,8 @@ namespace System.Reflection
 #endif
     public static string GetDeclaringTypeName(this MemberInfo mi)
     {
-      if (mi.DeclaringType != null)
-        return mi.DeclaringType.Name;
+      var declaringType = mi.DeclaringType;
+      if (declaringType != null) { return declaringType.Name; }
 
 #if !(NETFX_CORE || WP || PCL || NETSTANDARD)
       return mi.ReflectedType.Name;
@@ -1753,12 +1756,12 @@ namespace System.Reflection
 #endif
     public static Type GetDeclaringType(this Type type)
     {
-      if (type.DeclaringType != null)
-        return type.DeclaringType;
+      var declaringType = type.DeclaringType;
+      if (declaringType != null) { return declaringType; }
 
 #if !(NETFX_CORE || WP || PCL || NETSTANDARD)
-      if (type.ReflectedType != null)
-        return type.ReflectedType;
+      var reflectedType = type.ReflectedType;
+      if (reflectedType != null) { return reflectedType; }
 #endif
 
       return null;
@@ -1769,13 +1772,41 @@ namespace System.Reflection
 #endif
     public static Type GetDeclaringType(this MemberInfo mi)
     {
-      if (mi.DeclaringType != null)
-        return mi.DeclaringType;
+      var declaringType = mi.DeclaringType;
+      if (declaringType != null) { return declaringType; }
 
 #if !(NETFX_CORE || WP || PCL || NETSTANDARD)
       return mi.ReflectedType;
 #else
       return null;
+#endif
+    }
+
+    #endregion
+
+    #region -- ReflectedType --
+
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static Type ReflectedType(this PropertyInfo pi)
+    {
+#if (NETFX_CORE || PCL || NETSTANDARD)
+      return pi.DeclaringType;
+#else
+      return pi.ReflectedType;
+#endif
+    }
+
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static Type ReflectedType(this FieldInfo fi)
+    {
+#if (NETFX_CORE || PCL || NETSTANDARD)
+      return fi.DeclaringType;
+#else
+      return fi.ReflectedType;
 #endif
     }
 
