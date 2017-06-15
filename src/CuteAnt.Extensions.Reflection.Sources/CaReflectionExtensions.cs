@@ -1747,6 +1747,36 @@ namespace System.Reflection
 #endif
     }
 
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static string GetDeclaringTypeName(this PropertyInfo pi)
+    {
+      var declaringType = pi.DeclaringType;
+      if (declaringType != null) { return declaringType.Name; }
+
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
+      return pi.ReflectedType.Name;
+#else
+      return null;
+#endif
+    }
+
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static string GetDeclaringTypeName(this FieldInfo fi)
+    {
+      var declaringType = fi.DeclaringType;
+      if (declaringType != null) { return declaringType.Name; }
+
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
+      return fi.ReflectedType.Name;
+#else
+      return null;
+#endif
+    }
+
     #endregion
 
     #region -- GetDeclaringType --
@@ -1781,6 +1811,38 @@ namespace System.Reflection
       return null;
 #endif
     }
+
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static Type GetDeclaringType(this PropertyInfo pi)
+    {
+      var declaringType = pi.DeclaringType;
+      if (declaringType != null) { return declaringType; }
+
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
+      return pi.ReflectedType;
+#else
+      return null;
+#endif
+    }
+
+
+#if !NET40
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static Type GetDeclaringType(this FieldInfo fi)
+    {
+      var declaringType = fi.DeclaringType;
+      if (declaringType != null) { return declaringType; }
+
+#if !(NETFX_CORE || WP || PCL || NETSTANDARD)
+      return fi.ReflectedType;
+#else
+      return null;
+#endif
+    }
+
 
     #endregion
 
