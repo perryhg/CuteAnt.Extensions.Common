@@ -16,13 +16,13 @@ namespace System.IO
     internal const int DefaultBufferSize = 1024;   // char[]
 
 #if NET40
-    private static readonly FieldInfo s_closable = typeof(StreamReader).GetFieldEx("_closable");
-    private static readonly Func<StreamReader, object> s_closableGetter = s_closable.GetValueGetter<StreamReader>();
-    private static readonly Action<StreamReader, object> s_closableSetter = s_closable.GetValueSetter<StreamReader>();
+    private static readonly FieldInfo s_closable = typeof(StreamReader).GetTypeField("_closable");
+    private static readonly MemberGetter<StreamReader> s_closableGetter = s_closable.GetValueGetter<StreamReader>();
+    private static readonly MemberSetter<StreamReader> s_closableSetter = s_closable.GetValueSetter<StreamReader>();
 
-    private static readonly FieldInfo s_charPosition = typeof(StreamReader).GetFieldEx("charPos");
-    private static readonly Func<StreamReader, object> s_charPositionGetter = s_charPosition.GetValueGetter<StreamReader>();
-    private static readonly Action<StreamReader, object> s_charPositionSetter = s_charPosition.GetValueSetter<StreamReader>();
+    private static readonly FieldInfo s_charPosition = typeof(StreamReader).GetTypeField("charPos");
+    private static readonly MemberGetter<StreamReader> s_charPositionGetter = s_charPosition.GetValueGetter<StreamReader>();
+    private static readonly MemberSetter<StreamReader> s_charPositionSetter = s_charPosition.GetValueSetter<StreamReader>();
     /// <summary>是否在最后关闭流</summary>
     public bool LeaveOpenInternal { get { return !(bool)s_closableGetter(this); } set { s_closableSetter(this, !value); } }
 
@@ -39,7 +39,7 @@ namespace System.IO
     /// <exception cref="T:System.ArgumentException"><paramref name="stream" /> 不支持读取。</exception>
     /// <exception cref="T:System.ArgumentNullException"><paramref name="stream" /> 为 null。</exception>
     public StreamReaderX(Stream stream)
-      : this(stream, Encoding.UTF8, true, DefaultBufferSize, false) { }
+      : this(stream, Encoding.UTF8, true, DefaultBufferSize, true) { }
 
     /// <summary>为指定的流初始化 <see cref="T:System.IO.StreamReader" /> 类的新实例。</summary>
     /// <param name="stream">要读取的流。</param>
@@ -55,7 +55,7 @@ namespace System.IO
     /// <exception cref="T:System.ArgumentException"><paramref name="stream" /> 不支持读取。</exception>
     /// <exception cref="T:System.ArgumentNullException"><paramref name="stream" /> 或 <paramref name="encoding" /> 为 null。</exception>
     public StreamReaderX(Stream stream, Encoding encoding)
-      : this(stream, encoding, true, DefaultBufferSize, false) { }
+      : this(stream, encoding, true, DefaultBufferSize, true) { }
 
     /// <summary>为指定的流初始化 <see cref="T:System.IO.StreamReader" /> 类的新实例，带有指定的字符编码、字节顺序标记检测选项和缓冲区大小。</summary>
     /// <param name="stream">要读取的流。</param>
@@ -73,7 +73,7 @@ namespace System.IO
     /// <exception cref="T:System.ArgumentException">流不支持读取。</exception>
     /// <exception cref="T:System.ArgumentNullException"><paramref name="stream" /> 或 <paramref name="encoding" /> 为 null。</exception>
     public StreamReaderX(Stream stream, Encoding encoding, int bufferSize)
-      : this(stream, encoding, true, bufferSize, false) { }
+      : this(stream, encoding, true, bufferSize, true) { }
 
     /// <summary>为指定的流初始化 <see cref="T:System.IO.StreamReader" /> 类的新实例，带有指定的字符编码、字节顺序标记检测选项和缓冲区大小。</summary>
     /// <param name="stream">要读取的流。</param>

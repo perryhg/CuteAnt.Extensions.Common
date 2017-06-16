@@ -50,9 +50,9 @@ namespace System.IO
     }
 
 #if NET40
-    private static readonly FieldInfo s_closable = typeof(StreamWriter).GetFieldEx("closable");
-    private static readonly Func<StreamWriter, object> s_closableGetter = s_closable.GetValueGetter<StreamWriter>();
-    private static readonly Action<StreamWriter, object> s_closableSetter = s_closable.GetValueSetter<StreamWriter>();
+    private static readonly FieldInfo s_closable = typeof(StreamWriter).GetTypeField("closable");
+    private static readonly MemberGetter<StreamWriter> s_closableGetter = s_closable.GetValueGetter<StreamWriter>();
+    private static readonly MemberSetter<StreamWriter> s_closableSetter = s_closable.GetValueSetter<StreamWriter>();
 
     /// <summary>是否在最后关闭流</summary>
     public bool LeaveOpenInternal { get { return !(bool)s_closableGetter(this); } set { s_closableSetter(this, !value); } }
@@ -67,7 +67,7 @@ namespace System.IO
     /// <exception cref="T:System.ArgumentException"><paramref name="stream" /> 不可写。</exception>
     /// <exception cref="T:System.ArgumentNullException"><paramref name="stream" /> 为 null。</exception>
     public StreamWriterX(Stream stream)
-      : this(stream, UTF8NoBOM, DefaultBufferSize, false) { }
+      : this(stream, UTF8NoBOM, DefaultBufferSize, true) { }
 
     /// <summary>用 UTF-8 编码及默认缓冲区大小，为指定的流初始化 <see cref="T:System.IO.StreamWriter" /> 类的一个新实例。</summary>
     /// <param name="stream">要写入的流。</param>
@@ -83,7 +83,7 @@ namespace System.IO
     /// <exception cref="T:System.ArgumentNullException"><paramref name="stream" /> 或 <paramref name="encoding" /> 为 null。</exception>
     /// <exception cref="T:System.ArgumentException"><paramref name="stream" /> 不可写。</exception>
     public StreamWriterX(Stream stream, Encoding encoding)
-      : this(stream, encoding, DefaultBufferSize, false) { }
+      : this(stream, encoding, DefaultBufferSize, true) { }
 
     /// <summary>用指定的编码及缓冲区大小，为指定的流初始化 <see cref="T:System.IO.StreamWriter" /> 类的新实例。</summary>
     /// <param name="stream">要写入的流。</param>
