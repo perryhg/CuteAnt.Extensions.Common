@@ -25,7 +25,6 @@ namespace System.Threading.Tasks
     /// <param name="this">The <see cref="TaskFactory"/>. May not be <c>null</c>.</param>
     /// <param name="action">The action delegate to execute. May not be <c>null</c>.</param>
     /// <param name="cancellationToken">The <see cref="CancellationToken"/> that will be assigned to the new task.</param>
-    /// <see cref="T:System.Threading.Tasks.Task{TResult}"/>.</param>
     /// <returns>The started task.</returns>
     internal static Task<TResult> Run<TResult>(this TaskFactory @this, Func<TResult> action, CancellationToken cancellationToken = default(CancellationToken))
     {
@@ -41,7 +40,6 @@ namespace System.Threading.Tasks
     /// <param name="this">The <see cref="TaskFactory"/>. May not be <c>null</c>.</param>
     /// <param name="action">The action delegate to execute. May not be <c>null</c>.</param>
     /// <param name="cancellationToken">The <see cref="CancellationToken"/> that will be assigned to the new task.</param>
-    /// <see cref="T:System.Threading.Tasks.Task">Task.</see></param>
     /// <returns>The started task.</returns>
     internal static Task Run(this TaskFactory @this, Func<Task> action, CancellationToken cancellationToken = default(CancellationToken))
     {
@@ -57,7 +55,6 @@ namespace System.Threading.Tasks
     /// <param name="this">The <see cref="TaskFactory"/>. May not be <c>null</c>.</param>
     /// <param name="action">The action delegate to execute. May not be <c>null</c>.</param>
     /// <param name="cancellationToken">The <see cref="CancellationToken"/> that will be assigned to the new task.</param>
-    /// <see cref="T:System.Threading.Tasks.Task{TResult}"/>.</param>
     /// <returns>The started task.</returns>
     internal static Task<TResult> Run<TResult>(this TaskFactory @this, Func<Task<TResult>> action, CancellationToken cancellationToken = default(CancellationToken))
     {
